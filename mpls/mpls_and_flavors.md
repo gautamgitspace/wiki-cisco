@@ -12,7 +12,7 @@
 4. MPBGP - Multi-protocol BGP supports label distribution through the IPv4 and IPv6 labeled unicast address families. This is a specialized function in support of Layer 3 MPLS VPNs
 
 # RSVP-TE from here on:
-- In its working, RSVP-TE can verify that the path is good to go and that the resources it wants to use from the network are available before the LSP is established. It can also reserver the resources it needs.
+- In its working, RSVP-TE can verify that the path is good to go and that the resources it wants to use from the network are available before the LSP is established. It can also reserve the resources it needs.
 - How the signaling works in RSVP-TE?
 
 RSVP-TE uses two messages to accomplish this signaling: PATH messages and RESV messages. Suppose R1, the ingress LSR, wants to set up an LSP to R4, the egress (remember that LSPs are unidirectional). It sends a PATH message requesting the LSP setup hop-by-hop along the path to R4, and each LSR along the path sets aside the resources requested. If the requested resources are not available at any LSR, that router sends a message back to the ingress; the ingress LSR must then either find another path or fail to establish the LSP. Assuming the path is good and the PATH message reaches the egress LSR, that router responds by sending a RESV message back to the ingress. This message performs the label distribution function as described in the previous post.
